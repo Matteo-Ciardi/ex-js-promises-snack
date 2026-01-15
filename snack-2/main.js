@@ -3,25 +3,25 @@
 // function lanciaDado(result) {
 //     return new Promise((resolve, reject) => {
 //         console.log('Sto lanciando il dado..');
-        
+
 //         setTimeout(() => {
-//         const siIncastra = Math.random() < 0.2;
-        
-//         if (siIncastra) {
-//             reject('Il dado si è incastrato');
-//             return;
-//         }
+//             const siIncastra = Math.random() < 0.2;
 
-//         const risultato = Math.floor(Math.random() * 6) +1;
-//         resolve (risultato);
+//             if (siIncastra) {
+//                 reject('Il dado si è incastrato');
+//                 return;
+//             } else {
+//                 const risultato = Math.floor(Math.random() * 6) + 1;
+//                 resolve(risultato);
+//             }
 
-//         }, 3000) 
+//         }, 3000)
 //     });
 // }
 
 // lanciaDado()
-// .then(numero => console.log("E' uscito il numero:", numero))
-// .catch(error => console.log(error));
+//     .then(numero => console.log("E' uscito il numero:", numero))
+//     .catch(error => console.log(error));
 
 
 // Bonus: HOF con closure per memorizzare l'ultimo lancio
@@ -35,9 +35,9 @@ function creaLanciaDado() {
             console.log("Sto lanciando il dado..");
 
             setTimeout(() => {
-                if(Math.random() < 0.2) {
+                if (Math.random() < 0.2) {
                     console.log("Il dado si è incastrato");
-                    return; 
+                    return;
                 }
 
                 const num = Math.floor(Math.random() * 6) + 1;
