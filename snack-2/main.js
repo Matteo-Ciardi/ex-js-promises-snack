@@ -36,19 +36,18 @@ function creaLanciaDado() {
 
             setTimeout(() => {
                 if (Math.random() < 0.2) {
-                    console.log("Il dado si è incastrato");
+                    ultimoNum = null;
+                    reject("Il dado si è incastrato");
                     return;
+                } else {
+                    const num = Math.floor(Math.random() * 6) + 1;
+                    if (num === ultimoNum) {
+                        console.log("Incredibile!");
+                    }
+
+                    ultimoNum = num
+                    resolve(num)
                 }
-
-                const num = Math.floor(Math.random() * 6) + 1;
-
-                if (num === ultimoNum) {
-                    console.log("Meraviglioso!");
-                }
-
-                ultimoNum = num
-                resolve(num)
-
             }, 3000)
         });
     };
@@ -56,7 +55,7 @@ function creaLanciaDado() {
 
 const lancia = creaLanciaDado();
 
-lancia().then(n => console.log("Risultato:", n));
-lancia().then(n => console.log("Risultato:", n));
-lancia().then(n => console.log("Risultato:", n));
+lancia()
+    .then(res => console.log("E' uscito il numero:", numero))
+    .catch(error => console.log(error));
 
