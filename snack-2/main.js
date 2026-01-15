@@ -56,6 +56,12 @@ function creaLanciaDado() {
 const lancia = creaLanciaDado();
 
 lancia()
-    .then(res => console.log("E' uscito il numero:", numero))
+    .then(res => {
+        console.log("E' uscito il numero:", numero)
+        lancia()
+            .then(res => console.log("E' uscito il numero:", numero))
+            .catch(error => console.log(error));
+    })
     .catch(error => console.log(error));
+
 
